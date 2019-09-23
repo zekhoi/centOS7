@@ -1,0 +1,22 @@
+###############################
+#                             #
+#          centOS 7           #
+#                             #
+###############################
+
+# Konfigurasi VPS #
+# hostname : host.insomniac.id
+
+yum install php
+yum install perl
+yum install curl
+yum install git
+
+
+# Instalasi cPanel  #
+
+curl -o latest -L https://securedownloads.cpanel.net/latest
+
+sh latest
+
+# Instalasi sekitar 30 menit #
