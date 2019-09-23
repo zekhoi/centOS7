@@ -16,7 +16,6 @@ yum install git
 # Instalasi cPanel  #
 
 curl -o latest -L https://securedownloads.cpanel.net/latest
-
 sh latest
 
 # Instalasi sekitar 30 menit #
