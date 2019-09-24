@@ -12,14 +12,48 @@ cd /home/exclsdamnt
 #Install node#
 yum -y install nodejs git gcc glibc-static ncurses-devel
 
-
 # Ngambil repo c9 #
 git clone git://github.com/c9/core.git c9
 
-cd c9
 # Install c9 #
+cd c9
 scripts/install-sdk.sh
 
 # Jalanin c9 #
-
 node server.js -p 8080 -a username:password --listen 0.0.0.0 -w /home/c9user/{project}
+
+# always on #
+sudo nano /lib/systemd/system/c9.service
+
+$
+
+# Run:
+# - systemctl enable c9
+# - systemctl {start,stop,restart} c9
+#
+[Unit]
+Description=c9
+After=syslog.target network.target
+ 
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /home/exclsdamnt/c9sdk/server.js -a exclsdamnt:manakali321 --listen 0.0.0.0 -w /home/exclsdamnt/c9
+Environment=NODE_ENV=production PORT=9191
+User=exclsdamnt
+Group=exclsdamnt
+UMask=0002
+Restart=on-failure
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=c9
+ 
+[Install]
+WantedBy=multi-user.target
+
+$
+
+# mengaktifkan service #
+sudo systemctl enable c9.service
+sudo systemctl daemon-reload
+sudo service c9 start // restart
