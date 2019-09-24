@@ -1,0 +1,25 @@
+###############################
+#                             #
+#         centOS 7 c9         #
+#                             #
+###############################
+
+# Instalasi c9 #
+
+
+cd /home/exclsdamnt
+
+#Install node#
+yum -y install nodejs git gcc glibc-static ncurses-devel
+
+
+# Ngambil repo c9 #
+git clone git://github.com/c9/core.git c9
+
+cd c9
+# Install c9 #
+scripts/install-sdk.sh
+
+# Jalanin c9 #
+
+node server.js -p 8080 -a username:password --listen 0.0.0.0 -w /home/c9user/{project}
