@@ -10,7 +10,7 @@
 cd /home/exclsdamnt
 
 #Install node#
-yum -y install nodejs git gcc glibc-static ncurses-devel nodejs
+yum -y install git gcc glibc-static ncurses-devel
 
 # Ngambil repo c9 #
 git clone https://github.com/c9/core.git c9
