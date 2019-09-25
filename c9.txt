@@ -10,17 +10,17 @@
 cd /home/exclsdamnt
 
 #Install node#
-yum -y install nodejs git gcc glibc-static ncurses-devel
+yum -y install nodejs git gcc glibc-static ncurses-devel nodejs
 
 # Ngambil repo c9 #
-git clone git://github.com/c9/core.git c9
+git clone https://github.com/c9/core.git c9
 
 # Install c9 #
 cd c9
 scripts/install-sdk.sh
 
 # Jalanin c9 #
-node server.js -p 8080 -a username:password --listen 0.0.0.0 -w /home/c9user/{project}
+node server.js -p 8080 -a username:password --listen 0.0.0.0 -w /home/{user}/{project}
 
 # always on #
 sudo nano /lib/systemd/system/c9.service
@@ -37,10 +37,10 @@ After=syslog.target network.target
  
 [Service]
 Type=simple
-ExecStart=/usr/bin/node /home/exclsdamnt/c9sdk/server.js -a exclsdamnt:manakali321 --listen 0.0.0.0 -w /home/exclsdamnt/c9
+ExecStart=/usr/bin/node /home/c9/server.js -a username:password --listen 0.0.0.0 w /home/{user}/{project}
 Environment=NODE_ENV=production PORT=9191
-User=exclsdamnt
-Group=exclsdamnt
+User={user}
+Group={user}
 UMask=0002
 Restart=on-failure
 
