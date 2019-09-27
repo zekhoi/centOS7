@@ -1,30 +1,33 @@
-###############################
-#                             #
-#         centOS 7 c9         #
-#                             #
-###############################
+########################################
+#                                      #
+#         centOS 7 c9 cloudIDE         #
+#                                      #
+########################################
 
-# Instalasi c9 #
+# c9 Installation #
 
 
-cd /home/exclsdamnt
+cd /home/{user}
+
+yum install curl
 
 #Install node#
 curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+yum install nodejs
 
-yum -y install git php perl python gcc glibc-static ncurses-devel
 
-# Ngambil repo c9 #
-git clone https://github.com/c9/core.git c9
+
+# cloning c9 git #
+git clone https://github.com/c9/core.git {newfolder}
 
 # Install c9 #
-cd c9
+cd {newfolder}
 scripts/install-sdk.sh
 
-# Jalanin c9 #
-node server.js -p 8080 -a username:password --listen 0.0.0.0 -w /home/{user}/{project}
+# Running c9 #
+node server.js -p 8080 -a username:password --listen 0.0.0.0 -w /home/{user}/{newproject}
 
-# always on #
+# always on c9 #
 sudo nano /lib/systemd/system/c9.service
 
 $
@@ -40,7 +43,7 @@ After=syslog.target network.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/node /home/user/c9/server.js -a user:passwd -l 0.0.0.0 -w /home/user/dir
-Environment=NODE_ENV=production PORT=9191
+Environment=NODE_ENV=production PORT={yourport, like 8080 or 9191}
 User=user
 Group=group
 UMask=0002
@@ -55,7 +58,14 @@ WantedBy=multi-user.target
 
 $
 
-# mengaktifkan service #
+# enableing c9 service #
 sudo systemctl enable c9.service
 sudo systemctl daemon-reload
-sudo service c9 start // restart
+sudo service c9 start or restart
+
+# check c9 status #
+serive c9 status
+
+
+
+# DONE #
