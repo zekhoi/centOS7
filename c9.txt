@@ -39,10 +39,10 @@ After=syslog.target network.target
  
 [Service]
 Type=simple
-ExecStart=/usr/bin/node /home/c9/server.js -a username:password --listen 0.0.0.0 w /home/{user}/{project}
+ExecStart=/usr/bin/node /home/user/c9/server.js -a user:passwd -l 0.0.0.0 -w /home/user/dir
 Environment=NODE_ENV=production PORT=9191
-User={user}
-Group={user}
+User=user
+Group=group
 UMask=0002
 Restart=on-failure
 
