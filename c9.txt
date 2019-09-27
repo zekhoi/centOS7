@@ -10,7 +10,9 @@
 cd /home/exclsdamnt
 
 #Install node#
-yum -y install git gcc glibc-static ncurses-devel
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+
+yum -y install git php perl python gcc glibc-static ncurses-devel
 
 # Ngambil repo c9 #
 git clone https://github.com/c9/core.git c9
