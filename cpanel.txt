@@ -4,18 +4,17 @@
 #                             #
 ###############################
 
-# Konfigurasi VPS #
-# hostname : host.insomniac.id
+# Configure VPS #
 
-yum install php
-yum install perl
-yum install curl
-yum install git
+hostname  host.domain.com
+
+# install php, perl, etc #
+yum install php perl git curl
 
 
-# Instalasi cPanel  #
+# cPanel Installation  #
 
 curl -o latest -L https://securedownloads.cpanel.net/latest
 sh latest
 
-# Instalasi sekitar 30 menit #
+# Installation about 30 minutes #
