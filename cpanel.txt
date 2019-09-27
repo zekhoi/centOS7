@@ -1,8 +1,8 @@
-###############################
-#                             #
-#       centOS 7 cPanel       #
-#                             #
-###############################
+#####################################
+#                                   #
+#       centOS 7 WHM & cPanel       #
+#                                   #
+#####################################
 
 # Configure VPS #
 
@@ -17,4 +17,13 @@ yum install php perl git curl
 curl -o latest -L https://securedownloads.cpanel.net/latest
 sh latest
 
-# Installation about 30 minutes #
+# Installation takes around 30 minutes #
+
+# Login WHM #
+
+http://yourip:2086 or http://host.domain.com:2083
+
+username : root
+password : yourpassword
+
+# Done #
