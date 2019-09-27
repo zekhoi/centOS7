@@ -1,0 +1,21 @@
+###############################
+#                             #
+#        centOS 7 php         #
+#                             #
+###############################
+
+# repo php #
+
+sudo yum install epel-release yum-utilssudo 
+yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+# enable php #
+
+sudo yum-config-manager --enable remi-php73
+
+# update php #
+
+sudo yum install php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd
+
+# check php #
+php -v
