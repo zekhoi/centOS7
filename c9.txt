@@ -42,10 +42,10 @@ After=syslog.target network.target
  
 [Service]
 Type=simple
-ExecStart=/usr/bin/node /home/user/c9/server.js -a user:passwd -l 0.0.0.0 -w /home/user/dir
-Environment=NODE_ENV=production PORT={yourport, like 8080 or 9191}
-User=user
-Group=group
+ExecStart=/usr/bin/node /{your directory}/server.js -a user:passwd -l 0.0.0.0 -w /home/{your username}
+Environment=NODE_ENV=production PORT=4000
+User={root or username}
+Group={root or group}
 UMask=0002
 Restart=on-failure
 
@@ -64,7 +64,7 @@ sudo systemctl daemon-reload
 sudo service c9 start or restart
 
 # check c9 status #
-serive c9 status
+service c9 status
 
 
 
